@@ -1,5 +1,5 @@
-import { INodeElement, ShoppingItemType } from "../models/InternalData";
-import { ExtShoppingItemType, IExtNodeElement, Timestamp } from "../models/ExternalData";
+import { Chat, INodeElement, ShoppingItemType } from "../models/InternalData";
+import { ExtChat, ExtShoppingItemType, IExtNodeElement, Timestamp } from "../models/ExternalData";
 
 
 const convertToTimestamp = (dateString: string): Timestamp => {
@@ -23,12 +23,19 @@ export const convertIntShoppingItem = (data: ShoppingItemType): ExtShoppingItemT
     }
 }
 
-export const convertINodeElement = (data: INodeElement): Omit<IExtNodeElement, "ShoppingItems"> & { ShoppingItems?: ExtShoppingItemType[] | unknown } => {
+export const convertINodeElement = (data: INodeElement, convertedShoppingItems: ExtShoppingItemType[]): IExtNodeElement => {
     return {
         FirstName: data.firstName,
         LastName: data.lastName,
         Age: data.age,
         BirthDate: convertToTimestamp(data.birthDate),
-        ShoppingItems: data.shoppingItemsList,
+        ShoppingItems: convertedShoppingItems,
     }
 }
+
+export const convertChat = (data: Chat, convertedINodeElements: IExtNodeElement[]): ExtChat => {
+  return {
+      Title: data.title,
+      ChatItems: convertedINodeElements,
+  }
+};

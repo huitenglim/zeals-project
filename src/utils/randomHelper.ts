@@ -11,3 +11,5 @@ export const randomDate = (start: Date, end: Date) => {
 export const randomItemName = (): string => `Cotton T-shirt ${randomNumber(100, 999)}`;
 
 export const randomPrice = (): number => parseFloat(randomFloatingNumber(10.99, 100.99).toFixed(2));
+
+export const randomTitle = (): string => `Some Title ${randomNumber(100, 999)}`;
