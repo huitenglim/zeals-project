@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { mockShoppingItems } from "./mocks/mockShoppingItems";
+import { convertINodeElement, convertIntShoppingItem } from "./utils/converter";
+import { mockINodeElements } from "./mocks/mockNodeElements";
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const convertedShoppingItems = mockShoppingItems.map((item) => convertIntShoppingItem(item))
+    const convertedINodeElements = mockINodeElements.map((item) => convertINodeElement(item))
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    console.log("[ORIGINAL INTERNAL SHOPPING ITEMS]: ", mockShoppingItems);
+    console.log("[CONVERTED INTERNAL SHOPPING ITEMS]: ", convertedShoppingItems);
+    console.log("[ORIGINAL INTERNAL NODE ELEMENTS]: ", mockINodeElements);
+    console.log("[CONVERTED INTERNAL NODE ELEMENTSS]: ", convertedINodeElements);
+
+    return (
+        <>
+            <div>
+                <h1>Zeals Project</h1>
+                <p>Open up the console for more information</p>
+            </div>
+        </>
+    )
 }
 
 export default App
