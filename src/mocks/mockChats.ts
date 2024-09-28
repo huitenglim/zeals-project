@@ -9,6 +9,10 @@ export const createSampleChats = (): Chat => {
     }
 };
 
+/**
+ * Generate random amount of internal chats.
+ * @param amountToGenerate - Number to generate.
+ */
 export const createChat = (amountToGenerate: number): Chat[] => {
     return Array.from({length: amountToGenerate}, () => createSampleChats());
 }

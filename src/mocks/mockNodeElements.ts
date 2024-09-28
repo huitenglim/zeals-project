@@ -12,6 +12,10 @@ export const createSampleINodeElement = (): INodeElement => {
     };
 };
 
+/**
+ * Generate random amount of internal node elements.
+ * @param amountToGenerate - Number to generate.
+ */
 export const createINodeElement = (amountToGenerate: number): INodeElement[] => {
     return Array.from({length: amountToGenerate}, () => createSampleINodeElement());
 }

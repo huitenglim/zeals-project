@@ -10,6 +10,10 @@ export const createSampleShoppingItem = (): ShoppingItemType => {
     };
 };
 
+/**
+ * Generate random amount of internal shopping items.
+ * @param amountToGenerate - Number to generate.
+ */
 export const createRandomShoppingItem = (amountToGenerate: number): ShoppingItemType[] => {
     return Array.from({length: amountToGenerate}, () => createSampleShoppingItem());
 }
