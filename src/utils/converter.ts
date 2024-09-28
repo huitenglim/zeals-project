@@ -32,7 +32,7 @@ export const convertIntShoppingItem = (data: ShoppingItemType): ExtShoppingItemT
 };
 
 /**
- * Convert internal data of INodeElement to external data of ExtShoppingItemType.
+ * Convert internal data of INodeElement to external data of IExtNodeElement.
  * @param data - Data of INodeElement.
  * @param convertedShoppingItems - Already converted external data of ExtShoppingItemType.
  */
